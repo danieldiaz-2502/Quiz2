@@ -58,3 +58,17 @@
     color :azure;
     background-color: rgb(22, 50, 90);
 }
+
+.moveUpBtn{
+    width: 20%;
+    justify-content: left;
+    color :azure;
+    background-color: rgb(22, 50, 90);
+}
+
+.tareaCont{
+    align-items: center;
+    justify-content: center;
+    color :rgb(25, 42, 75);
+    background-color: rgb(255, 255, 255);
+}

@@ -1,7 +1,7 @@
 const nuevaTareaBtn = document.getElementById('nuevaTareaBtn');
-const toDoContainer = document.getElementById('toDoContainer');
-const doingContainer = document.getElementById('doingContainer');
-const doneContainer = document.getElementById('doneContainer');
+const toDoList = document.getElementById('toDoList');
+const doingList = document.getElementById('doingList');
+const doneList = document.getElementById('doneList');
 const tareaMsg = document.getElementById('tareaMsg');
 const database = firebase.database();
 
@@ -14,29 +14,39 @@ enviarTarea = () => {
         return;
     }
 
-    let tareaS = {
+    let reference = database.ref('tareas/').push();
 
-        tarea: tareaMsg.value,
-
+    let tarea = {
+        id: reference.key,
+        userTarea: tareaMsg.value,
     };
-    console.log(tareaS);
-    database.ref('tareas/').push().set(tareaS);
+    console.log(tarea);
+    database.ref('tareas/toDo').push().set(tarea);
 
     tareaMsg.value = '';
 
 }
 
-database.ref('tareas/').on('value', function(data){
-    toDoContainer.innerHTML = '';
+database.ref('tareas/toDo').on('value', function(data){
+    toDoList.innerHTML = '';
     data.forEach(
-        tareaS => {
-            let valor = tareaS.val();
-            console.log(valor.message);
+        tarea => {
+            let valor = tarea.val();
             let fila = new Tarea(valor);
-            toDoContainer.appendChild(fila.render());
+            toDoList.appendChild(fila.render());
         
     });
+});
 
+database.ref('tareas/doing').on('value', function(data){
+    doingList.innerHTML = '';
+    data.forEach(
+        tarea => {
+            let valor = tarea.val();
+            let fila = new Tarea(valor);
+            doingList.appendChild(fila.render());
+        
+    });
 });
 
 nuevaTareaBtn.addEventListener('click', enviarTarea);
