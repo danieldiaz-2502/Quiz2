@@ -1,0 +1,60 @@
+#tareaContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(228, 239, 255);
+}
+
+#toDoContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(176, 209, 255);
+}
+
+#doingContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(187, 215, 255);
+}
+
+#doneContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(210, 229, 255);
+}
+
+#category{
+    width: 30%;
+    justify-content: center;
+    color :azure;
+    background-color: rgb(70, 147, 255);
+}
+
+#globalTitle{
+    width: 30%;
+    justify-content: center;
+    color :rgb(70, 147, 255);
+}
+
+#nuevaTareaBtn{
+    width: 20%;
+    justify-content: center;
+    color :azure;
+    background-color: rgb(22, 50, 90);
+}
